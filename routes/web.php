@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\NewTaskController;
+use App\Http\Controllers\PostController;
+use App\Models\NewTask;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\PostCondition;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ('welcome');
+    return view('home');
 });
+
+
+Route::get('/post', [PostController::class,'show']);
+Route::get('/New-task', [NewTaskController::class,'show']);
