@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EditTaskController;
 use App\Http\Controllers\NewTaskController;
 use App\Http\Controllers\PostController;
 use App\Models\NewTask;
@@ -24,3 +25,4 @@ Route::get('/', function () {
 
 Route::get('/post', [PostController::class,'show']);
 Route::get('/New-task', [NewTaskController::class,'show']);
+Route::get('/post/edit-task', [EditTaskController::class,'show'])->name('edit');
