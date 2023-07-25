@@ -24,7 +24,7 @@
         @foreach ($tasks as $task )
             
             <tbody>
-            <tr class="text-xl border-b transiton-300 ease-in-out hover:dark:bg-neutral-700 dark:border-indigo-500">
+            <tr class="text-xl border-b transiton-300 ease-in-out hover:dark:bg-neutral-400 dark:border-indigo-500">
                     <td class="px-7">{{ $task->id }}</td>
                     <td class="px-7">{{ $task->title}}</td>
                     <td class="px-7">{{ $task->description}}</td>

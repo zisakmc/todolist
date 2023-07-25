@@ -22,6 +22,6 @@ class NewTaskController extends Controller
       'content'     => 'required',
     ]) ;
        
-    return redirect("/post");
+    return redirect("/post")->with('massage', 'new task has been added');
    }
 }
