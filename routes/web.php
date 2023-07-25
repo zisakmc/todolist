@@ -4,6 +4,7 @@ use App\Http\Controllers\EditTaskController;
 use App\Http\Controllers\NewTaskController;
 use App\Http\Controllers\PostController;
 use App\Models\NewTask;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\PostCondition;
 
@@ -24,5 +25,8 @@ Route::get('/', function () {
 
 
 Route::get('/post', [PostController::class,'show']);
+
 Route::get('/New-task', [NewTaskController::class,'show']);
+Route::post('/New-task', [NewTaskController::class,'store']);
+
 Route::get('/post/edit-task', [EditTaskController::class,'show'])->name('edit');

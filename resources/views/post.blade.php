@@ -6,10 +6,10 @@
 
 <div>
     <h1 class="text-4xl text-cyan-500 mt-5 pl-8"> All Task </h1>
-   <div class="pl-9 mt-8">
+   <div class="pl-9 mt-8 flex flex-col">
         <table class="table-auto">
-            <thead>
-                <tr class="text-bold text-2xl">
+            <thead class="border-b">
+                <tr class="text-bold text-4xl ">
                     <td class="px-7">ID</td>
                     <td class="px-7">TITLE</td>
                     <td class="px-7">DESCRIPTIONS</td>
@@ -20,20 +20,23 @@
                     <td class="px-7">SAVE</td>
                 </tr>
             <thead>
-
+            
+        @foreach ($tasks as $task )
+            
             <tbody>
-            <tr class="text-xl">
-                    <td class="px-7">1</td>
-                    <td class="px-7">hello whoel</td>
-                    <td class="px-7">DESCRIPTIONS</td>
-                    <td class="px-7">hsdfh<td>
-                    <td class="px-7"><x-check/></td>
+            <tr class="text-xl border-b transiton-300 ease-in-out hover:dark:bg-neutral-700 dark:border-indigo-500">
+                    <td class="px-7">{{ $task->id }}</td>
+                    <td class="px-7">{{ $task->title}}</td>
+                    <td class="px-7">{{ $task->description}}</td>
+                    <td class="px-7">{{ $task->Content}}<td>
+                    <td class="px-7"> @if($task->done)<x-done/> @else <x-check/> @endif</td>
                     <td class="px-7"><x-edit/></td>
                     <td class="px-7"><x-del/></td>
                     <td class="px-7"><x-save/></td>
                 </tr>
             </tbody>
     
+        @endforeach
         </table>
    </div> 
 </div>
