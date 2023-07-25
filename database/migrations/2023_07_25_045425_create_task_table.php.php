@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Schema\ForeignKeyDefinition;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,13 +12,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('new_tasks', function (Blueprint $table) {
+        Schema::create('task', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('title');
             $table->string('description');
             $table->string('Content');
-            $table->boolean('done');
             $table->timestamps();
         });
     }
@@ -27,6 +27,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('new_tasks');
+        //
+        Schema::dropIfExists('task');
     }
 };
