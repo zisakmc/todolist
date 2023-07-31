@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('newtasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('title');
             $table->string('description');
             $table->string('Content');
-            $table->boolean('done');
+            $table->boolean('done')->nullable();
             $table->timestamps();
         });
     }

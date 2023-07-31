@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EditTaskController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\NewTaskController;
 use App\Http\Controllers\PostController;
 use App\Models\NewTask;
@@ -19,14 +20,13 @@ use PHPUnit\Framework\Attributes\PostCondition;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [homeController::class, 'count']);
 
+Route::any('/post', [PostController::class,'show']);
 
-Route::get('/post', [PostController::class,'show']);
 
 Route::get('/New-task', [NewTaskController::class,'show']);
 Route::post('/New-task', [NewTaskController::class,'store']);
 
 Route::get('/post/edit-task', [EditTaskController::class,'show'])->name('edit');
+Route::post('/post/edit-task', [EditTaskController::class,'update']);

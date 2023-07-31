@@ -4,8 +4,8 @@
 @section("page-section")
    <h1 class="text-4xl text-cyan-500 pl-20"> Edit Task </h1>
    <hr class="mt-5"> 
-   <form class="mt-8 text-2xl  text-blue-200 text-center" method="post">
-
+   <form class="mt-8 text-2xl  text-blue-200 text-center" method="POST" action="{{ url('/edit-task') }}">
+   @csrf
     {{-- tittle input --}}
    <div class="mb-5">
    <label for="title">Title</label><br>
@@ -28,7 +28,7 @@
     </textarea><br>
     </div>
 
-   <button class="rounded-md px-1 py-2 bg-cyan-600 hover:bg-cyan-500">Summit Task</button>
+   <button type="submit" class="rounded-md px-1 py-2 bg-cyan-600 hover:bg-cyan-500">Summit Task</button>
 
    </form>
 @endsection

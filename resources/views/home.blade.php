@@ -10,8 +10,8 @@
 
 <div class="text-center mt-10">
     <h1 class='text-4xl text-bold text-cyan-200'> Tasks Record </h1>
-    <h3 class = 'text-2xl mt-3'> Numbers of task Created __ </h3>
-    <h3 class = 'text-2xl mt-3'> Numbers of task Done __</h3>
+    <h3 class = 'text-2xl mt-3'> Numbers of task Created {{ $count }}</h3>
+    <h3 class = 'text-2xl mt-3'> Numbers of task Done {{ $done}} </h3>
 </div>
 
 @endsection

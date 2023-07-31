@@ -6,7 +6,7 @@
         @vite('resources/css/app.css')
         <title>@yield('title')</title>
     </head>
-    <body class="antialiased bg-neutral-700">
+    <body class="antialiased bg-gray-200">
     <section class="bg-slate-900">
         <div class="text-2xl text-bold mt-5 text-center text-cyan-300">
             <nav class="mt-5"> 

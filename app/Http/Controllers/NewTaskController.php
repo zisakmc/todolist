@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Newtask;
+use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
-
 class NewTaskController extends Controller
 {
    public function show() {
@@ -21,6 +21,13 @@ class NewTaskController extends Controller
       'description' => 'required',
       'content'     => 'required',
     ]) ;
+
+   $task = new Newtask(); 
+
+    $task->title = $request->title;
+    $task->description= $request->description;
+    $task->content= $request->content;
+    $task->save();
        
     return redirect("/post")->with('massage', 'new task has been added');
    }
