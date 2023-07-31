@@ -4,14 +4,8 @@
 @section("page-section")
    <h1 class="text-4xl text-cyan-500 pl-20"> Create New Task </h1>
    <hr class="mt-5"> 
-  <div>
-  @if(session()->has('message'))
-  <p>{{ session('message')}}</p>
-    
-  @endif
 
-  </div> 
-   <form class="mt-8 text-2xl  text-blue-200 text-center" method = "POST" action="{{ url('New-task') }}">
+     <form class="mt-8 text-2xl  text-center" method = "POST" action="{{ url('New-task') }}">
    @csrf
         {{-- tittle input --}}
          <div class="mb-5">
@@ -28,7 +22,7 @@
          <div class="mb-5 mt-5">
          {{--Content--}}
             <label for="content">Content</label><br>
-            <textarea rows = "10" cols= "50" name="content" placeholder="Type here..." class="mt-5" ></textarea><br>
+            <textarea rows = "7" cols= "50" name="content" placeholder="Type here..." class="mt-5" ></textarea><br>
          </div>
         @if ($errors->any())
     <div class="alert alert-danger text-sm text-red-600">

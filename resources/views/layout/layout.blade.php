@@ -8,11 +8,11 @@
     </head>
     <body class="antialiased bg-gray-200">
     <section class="bg-slate-900">
-        <div class="text-2xl text-bold mt-5 text-center text-cyan-300">
-            <nav class="mt-5"> 
+        <div class="flex text-2xl text-bold justify-center text-cyan-300">
+            <nav> 
                 <a class="hover:text-blue-500 p-5" href="/"> Home </a>
-                <a class="hover:text-blue-500 p-5"href="/post"> All task</a>
-                <a class="hover:text-blue-500 p-5"href="/New-task">New task</a>
+                <a class="hover:text-blue-500 p-5" href="/post"> All task</a>
+                <a class="hover:text-blue-500 p-5" href="/New-task">New task</a>
             <nav>
         </div>
         <div class="text-2xl text-right pr-9 mb-9">
@@ -21,6 +21,12 @@
             </nav>
         </div>
     </section>
+    <div class="flex justify-center bg-green-300 text-green-700 text-lg">
+      @if(session()->has('message'))
+        <p>{{ session('message')}}</p>
+      @endif
+  </div> 
+
      @yield('page-section')
     </body>
     <footer>

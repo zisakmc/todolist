@@ -11,9 +11,15 @@ class PostController extends Controller
    public function show(){
       
    $task = new Newtask();
-   $task = $task::latest()->paginate(10);
+   $task = $task::latest()->simplePaginate(10);
     return view('post')->with('tasks', $task);
    } 
+
+   public function sort(){
+
+     $task = Newtask::sortable()->simplePaginate(10);
+      return view('post')->with('tasks', $task);
+   }
 
 
 }

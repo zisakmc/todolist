@@ -29,6 +29,6 @@ class NewTaskController extends Controller
     $task->content= $request->content;
     $task->save();
        
-    return redirect("/post")->with('massage', 'new task has been added');
+    return redirect()->back()->with('message', 'new task has been added successfully');
    }
 }

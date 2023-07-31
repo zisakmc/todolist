@@ -13,10 +13,9 @@
                     <td class="px-7">TITLE</td>
                     <td class="px-7">DESCRIPTIONS</td>
                     <td class="px-7">CONTENT<td>
-                    <td class="px-7">DONE</td>
+                    <td class="px-7"><a href="{{ url("sort")}}">DONE</a></td>
                     <td class="px-7">EDIT</td>
                     <td class="px-7">DELETE</td>
-                    <td class="px-7">SAVE</td>
                 </tr>
             <thead>
             
@@ -27,10 +26,22 @@
                     <td class="px-7">{{ $task->title}}</td>
                     <td class="px-7">{{ $task->description}}</td>
                     <td class="px-7">{{ $task->Content}}<td>
-                    <td class="px-7"> <x-check/></td>
-                    <td class="px-7"><x-edit/></td>
-                    <td class="px-7"><x-del/></td>
-                    <td class="px-7"><x-save/></td>
+                    <td class="px-7 text-center"> @if($task->done) 
+                                            <x-check/>
+                                        @else
+                                            <x-uncheck/> 
+                                        @endif
+                    </td>
+                    <td class="px-7">
+                        <a href="{{ url('edit/'.$task->id ) }}">
+                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400">Edit</button>
+                        </a>
+                    </td>
+                    <td class="px-7">
+                        <a href="{{ url('delete/'.$task->id ) }}">
+                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400">Del</button>
+                        </a>
+                    </td>
                 </tr>
             </tbody>
     
