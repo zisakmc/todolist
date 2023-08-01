@@ -24,15 +24,6 @@
             <label for="content">Content</label><br>
             <textarea rows = "7" cols= "50" name="content" placeholder="Type here..." class="mt-5" ></textarea><br>
          </div>
-        @if ($errors->any())
-    <div class="alert alert-danger text-sm text-red-600">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif 
          <button type="submit" class="rounded-md px-1 py-2 bg-cyan-600 hover:bg-cyan-500">Create Task</button>
 
    </form>

@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         @vite('resources/css/app.css')
         <title>@yield('title')</title>
     </head>
@@ -21,13 +22,27 @@
             </nav>
         </div>
     </section>
-    <div class="flex justify-center bg-green-300 text-green-700 text-lg">
       @if(session()->has('message'))
-        <p>{{ session('message')}}</p>
+        <div x-data="{ show: true }"
+            x-init="setTimeout(()=> show=false, 2000)"
+            x-show="show"
+
+        class="flex justify-center bg-green-300 text-green-700 text-lg">
+            <p>{{ session('message')}}</p>
+        </div> 
       @endif
-  </div> 
 
      @yield('page-section')
+    @if ($errors->any())
+    <div class="flex justify-center alert alert-danger text-sm text-red-600">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif 
+
     </body>
     <footer>
        

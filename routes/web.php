@@ -30,6 +30,6 @@ Route::get('post', [PostController::class,'show']);
 Route::get('New-task', [NewTaskController::class,'show']);
 Route::post('New-task', [NewTaskController::class,'store']);
 
-Route::any('/post/edit-task/{id}', [EditTaskController::class,'show'])->name('edit');
-//Route::put('/post/edit-task/{id}', [EditTaskController::class,'update'])->name('update');
+Route::get('edit/{id}', [EditTaskController::class,'show'])->name('edit');
+Route::post('update/{id}', [EditTaskController::class,'data_update'])->name('update');
 

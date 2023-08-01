@@ -22,13 +22,13 @@ class NewTaskController extends Controller
       'content'     => 'required',
     ]) ;
 
-   $task = new Newtask(); 
+    $task = new Newtask(); 
 
     $task->title = $request->title;
     $task->description= $request->description;
     $task->content= $request->content;
     $task->save();
        
-    return redirect()->back()->with('message', 'new task has been added successfully');
+    return redirect('/post')->with('message', 'new task has been added successfully');
    }
 }

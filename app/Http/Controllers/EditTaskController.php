@@ -12,26 +12,29 @@ class EditTaskController extends Controller
       
       $task = Newtask::find($id);
 
-      return view("edit_task", compact('task'));
+      return view("edit_task")->with('tasks', $task);
    } 
 
-   public function update(Request $request,$id) {
-     $validate = $request->validate([
-         'title'        => 'required',
-         'description'  => 'reguired',
-         'content'      => 'required',
-      ]);
+   public function data_update(Request $request, $id) {
+
+     $valildate = $request->validate([
+
+      'title'       => 'required',
+      'description' => 'required',
+      'content'     => 'required',
+    ]) ;
+
 
       $task = Newtask::find($id);
-
-      $task->title         = $request->input("title");
-      $task->description   = $request->input("description");
-      $task->content       = $request->input("content");
+      $task->title = $request->input('title');
+      $task->description= $request->input('description');
+      $task->content= $request->input('content');
       $task->update();
-   
-      return redirect()->back()->with('message', 'Successfully editted');
       
-   }
+   
+      return redirect('/post')->with('message', 'Successfully editted');
+      
+    }
 
 
 }
