@@ -22,5 +22,5 @@ Route::get('edit/{id}', [EditTaskController::class,'show'])->name('edit');
 Route::post('update/{id}', [EditTaskController::class,'data_update'])->name('update');
 
 
-Route::get('register', [UserController::class,'show'])->name('register');
-Route::post('register', [UserController::class,'store']);
+Route::get('register', [UserController::class,'show']);
+Route::post('register', [UserController::class,'stored']);
