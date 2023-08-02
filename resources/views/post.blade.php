@@ -10,12 +10,13 @@
         <table class="table-auto">
             <thead class="border-b">
                 <tr class="text-bold text-4xl ">
-                    <td class="px-7">TITLE</td>
-                    <td class="px-7">DESCRIPTIONS</td>
-                    <td class="px-7">CONTENT<td>
-                    <td class="px-7"><a href="{{ url("sort")}}">DONE</a></td>
-                    <td class="px-7">EDIT</td>
-                    <td class="px-7">DELETE</td>
+                    <td class="px-7 uppercase hover:text-gray-400">@sortablelink('title')</td>
+                    <td class="px-7 uppercase hover:text-gray-400">@sortablelink('description')</td>
+                    <td class="px-7 uppercase hover:text-gray-400">@sortablelink('content')<td>
+                    <td class="px-7 uppercase hover:text-gray-400">@sortablelink('done')</td>
+                    <td class="px-7 uppercase ">dated</td>
+                    <td class="px-7 uppercase"></td>
+                    <td class="px-7 uppercase"></td>
                 </tr>
             <thead>
             
@@ -27,19 +28,22 @@
                     <td class="px-7">{{ $task->description}}</td>
                     <td class="px-7">{{ $task->Content}}<td>
                     <td class="px-7 text-center"> @if($task->done) 
-                                            <x-check/>
+                                            <x-checkbox/>
                                         @else
                                             <x-uncheck/> 
                                         @endif
                     </td>
+
+                    <td class="px-7">{{ $task->created_at->format('d - m - y') }}<td>
+
                     <td class="px-7">
                         <a href="{{ url('edit/'.$task->id ) }}">
-                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400">Edit</button>
+                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400 ">Edit</button>
                         </a>
                     </td>
                     <td class="px-7">
                         <a href="{{ url('delete/'.$task->id ) }}">
-                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400">Del</button>
+                        <button class="bg-cyan-500 rounded-md px-5 hover:bg-cyan-400 transition duration-300">Del</button>
                         </a>
                     </td>
                 </tr>
@@ -50,7 +54,7 @@
         </table>
    </div> 
 
-   <div class="flex justify-center mt-5">
+   <div class="flex justify-center mt-5 ">
         {{ $tasks->links() }}
    </div>
 

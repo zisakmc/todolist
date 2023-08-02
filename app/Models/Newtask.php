@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Newtask extends Model
 {
-    use HasFactory;
+    use HasFactory, Sortable;
     
     protected $fillable =[
         'name',
@@ -16,4 +17,5 @@ class Newtask extends Model
         'content',
         'done',
     ];
+    public $sortable = ['title', 'description', 'content', 'done'];
 }

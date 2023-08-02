@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Newtask;
-use Symfony\Component\VarDumper\Caster\RedisCaster;
 
 class homeController extends Controller
 {   
@@ -19,7 +17,7 @@ class homeController extends Controller
 
    public function destroy($id) {
 
-      $task = Newtask::find($id)->delete();
+      Newtask::findOrFail($id)->delete();
 
       return redirect()->back()->with("message", 'Task has been deleted successfully!!');
       

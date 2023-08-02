@@ -8,17 +8,18 @@
         <title>@yield('title')</title>
     </head>
     <body class="antialiased bg-gray-200">
-    <section class="bg-slate-900">
-        <div class="flex text-2xl text-bold justify-center text-cyan-300">
+    <section class="bg-slate-700">
+        <div class="flex text-2xl text-bold justify-center text-white">
             <nav> 
-                <a class="hover:text-blue-500 p-5" href="/"> Home </a>
-                <a class="hover:text-blue-500 p-5" href="/post"> All task</a>
-                <a class="hover:text-blue-500 p-5" href="/New-task">New task</a>
+                <a class="hover:text-blue-500 p-5 transition duration-300 " href="/"> Home </a>
+                <a class="hover:text-blue-500 p-5 transition duration-300" href="/post"> All task</a>
+                <a class="hover:text-blue-500 p-5 transition duration-300" href="/New-task">New task</a>
+                <a class="hover:text-blue-500 p-5 transition duration-300" href="/register">Register</a>
             <nav>
         </div>
-        <div class="text-2xl text-right pr-9 mb-9">
+        <div class="text-2xl text-right pr-9 mb-9 text-white">
             <nav>
-             <h5>Welcome, name</h5>   
+             <h5>Welcome name</h5>   
             </nav>
         </div>
     </section>
