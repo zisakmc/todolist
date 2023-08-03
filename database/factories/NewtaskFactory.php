@@ -18,9 +18,9 @@ class NewtaskFactory extends Factory
     {
         return [
             
-            'name'         => fake()->name(),
+            'user_id'      =>rand(1,10),
             'title'        => fake()->sentence(),
-            'description' => fake()->sentence(),
+            'description'  => fake()->sentence(),
             'content'      => fake()->paragraph(2),
             'done'         => fake()->boolean(),
         ];

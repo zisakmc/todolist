@@ -18,4 +18,10 @@ class Newtask extends Model
         'done',
     ];
     public $sortable = ['title', 'description', 'content', 'done'];
+
+    public function users() {
+
+        return $this->belongsTo(Users::class);
+        
+    }
 }
