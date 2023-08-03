@@ -7,21 +7,27 @@
         @vite('resources/css/app.css')
         <title>@yield('title')</title>
     </head>
-    <body class="antialiased bg-gray-200">
+    <body class="antialiased bg-gray-200 ">
     <section class="bg-slate-700">
         <div class="flex text-2xl text-bold justify-center text-white">
             <nav> 
-                <a class="hover:text-blue-500 p-5 transition duration-300 " href="/"> Home </a>
-                <a class="hover:text-blue-500 p-5 transition duration-300" href="/post"> All task</a>
-                <a class="hover:text-blue-500 p-5 transition duration-300" href="/New-task">New task</a>
-                <a class="hover:text-blue-500 p-5 transition duration-300" href="/register">Register</a>
+                @auth
+                    <a class="hover:text-blue-500 p-5 transition duration-300 " href="/"> Home </a>
+                    <a class="hover:text-blue-500 p-5 transition duration-300" href="/post"> All task</a>
+                    <a class="hover:text-blue-500 p-5 transition duration-300" href="/New-task">New task</a>
+                @endauth
             <nav>
         </div>
-        <div class="text-2xl text-right pr-9 mb-9 text-white">
-            <nav>
-             <h5>Welcome name</h5>   
-            </nav>
-        </div>
+
+        @auth
+            <div class="text-2xl text-right pr-9 mb-9 p-2 text-white">
+                <nav>
+                <h5>Welcome {{ Auth()->user()->name}} </h5>   
+                <a class="bg-cyan-500 rounded-md px-2 hover:bg-cyan-400" href="/logout">logout</a>
+                </nav>
+            </div>
+        @endauth
+
     </section>
       @if(session()->has('message'))
         <div x-data="{ show: true }"
@@ -33,19 +39,11 @@
         </div> 
       @endif
 
-     @yield('page-section')
-    @if ($errors->any())
-    <div class="flex justify-center alert alert-danger text-sm text-red-600">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif 
+    @yield('page-section')
 
-    </body>
+   </body>
     <footer>
-       
+    <div class="mt-10">
+    </div>    
     </footer>
 </html>

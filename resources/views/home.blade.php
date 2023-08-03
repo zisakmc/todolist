@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('title','Home')
 @section('page-section')
-<div class="text-6xl text-center text-cyan-500">
+<div class="text-6xl text-center text-cyan-800">
     <h3> Dashbord</h3>
 </div>
 <div class= "flex mt-8  justify-center ">
@@ -9,7 +9,7 @@
 </div>
 
 <div class="text-center mt-10">
-    <h1 class='text-4xl text-bold text-cyan-200'> Tasks Record </h1>
+    <h1 class='text-4xl text-bold uppercase'> Tasks Record </h1>
     <h3 class = 'text-2xl mt-3'> Numbers of task Created {{ $count }}</h3>
     <h3 class = 'text-2xl mt-3'> Numbers of task Done {{ $done}} </h3>
 </div>

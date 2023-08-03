@@ -9,7 +9,7 @@ class NewTaskController extends Controller
 {
    public function show() {
 
-  
+   
     return view('new_task');
     
    }

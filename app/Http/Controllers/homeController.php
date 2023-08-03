@@ -7,7 +7,7 @@ use App\Models\Newtask;
 class homeController extends Controller
 {   
    public $done;
-   public function count() {
+   public function index() {
 
    $task = new Newtask();
    $done= $task->where('done')->count();
