@@ -15,10 +15,10 @@ class EditTaskController extends Controller
      
       $task = Newtask::findOrFail($id);
 
-      if($task->user_id !== Auth::user()->id){
+       if($task->user_id !== Auth::user()->id){
          return redirect(404);
       }
-
+ 
       return view("edit_task")->with('tasks', $task);
    } 
    

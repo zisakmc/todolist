@@ -18,12 +18,12 @@ class homeController extends Controller
 
    public function destroy($id) {
       
-      $task = Newtask::findOrFail($id);
+      $task = Newtask::where('id',$id)->where('user_id', Auth::user()->id)->first();
 
-      if($task->user_id !== Auth::user()->id){
-         return redirect(404);
+      if($task){
+        $task->delete(); 
       }
-      Newtask::findOrFail($id)->delete();
+
 
       return redirect()->back()->with("message", 'Task has been deleted successfully!!');
       
