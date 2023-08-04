@@ -4,19 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Newtask;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+use function PHPUnit\Framework\returnSelf;
 
 class EditTaskController extends Controller
 {
    public $done;
    public function show($id){
-      
+     
       $task = Newtask::findOrFail($id);
+
+      if($task->user_id !== Auth::user()->id){
+         return redirect(404);
+      }
 
       return view("edit_task")->with('tasks', $task);
    } 
-
+   
    public function data_update(Request $request, $id) {
-
 
       $request->validate([
 
@@ -25,7 +31,7 @@ class EditTaskController extends Controller
       'content'     => 'required',
       'task'        => 'nullable',
     ]);
-      
+
       if($request->input('task') === 'on'){
          $this->done=1;
       }

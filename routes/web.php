@@ -22,7 +22,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('edit/{id}', [EditTaskController::class,'show'])->name('edit');
     Route::post('update/{id}', [EditTaskController::class,'data_update'])->name('update');
 
-
    });
 
 Route::get('register', [UserController::class,'show']);

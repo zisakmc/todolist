@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Newtask;
-use Illuminate\Console\View\Components\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class NewTaskController extends Controller
 {
    public function show() {
@@ -15,8 +16,8 @@ class NewTaskController extends Controller
    }
    
    public function store(Request $request){
-    $valildate = $request->validate([
-
+    
+    $request->validate([
       'title'       => 'required',
       'description' => 'required',
       'content'     => 'required',
@@ -27,6 +28,7 @@ class NewTaskController extends Controller
     $task->title = $request->title;
     $task->description= $request->description;
     $task->content= $request->content;
+    $task->user_id = Auth::user()->id;
     $task->save();
        
     return redirect('/post')->with('message', 'new task has been added successfully');

@@ -8,7 +8,7 @@
         <title>@yield('title')</title>
     </head>
     <body class="antialiased bg-gray-200 ">
-    <section class="bg-slate-700">
+    <section class="bg-[#0E2954]">
         <div class="flex text-2xl text-bold justify-center text-white">
             <nav> 
                 @auth
